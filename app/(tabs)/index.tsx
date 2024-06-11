@@ -4,8 +4,12 @@ import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import {Alert, Button, View} from 'react-native';
 
 export default function HomeScreen() {
+    const _onPressButton= () => {
+        Alert.alert('You tapped the button!');
+    }
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -16,11 +20,14 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
+        <ThemedText type="title">Well Personal Data</ThemedText>
         <HelloWave />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
+          <View style={styles.buttonContainer}>
+              <Button onPress={_onPressButton} title="Copo d'água" />
+          </View>
         <ThemedText>
           Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
           Press{' '}
@@ -67,4 +74,7 @@ const styles = StyleSheet.create({
     left: 0,
     position: 'absolute',
   },
+    buttonContainer: {
+        margin: 20,
+    },
 });
